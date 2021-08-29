@@ -291,7 +291,7 @@ namespace CompilerDemo {
         /// 不能在CompilerDemo.Core.Library下添加非系统函数的类
         /// </summary>
         public void loadSystemApi() {
-            Type[] types = Assembly.GetEntryAssembly().GetTypes();
+            Type[] types = Assembly.GetExecutingAssembly().GetTypes();
             foreach (Type t in types) {
                 if (t.FullName.Contains("CompilerDemo.Core.Library")) {
                     systemaip.Add(t.Name,Activator.CreateInstance(t) as Function);
